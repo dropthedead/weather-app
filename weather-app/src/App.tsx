@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
-import MainPage from './pages/MainPage/mainpage';
+
 import './App.scss';
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
 
         <Link to='/settings'>Настройки</Link>
       </header>
-      <MainPage />
+   
       <Outlet />
     </>
   );

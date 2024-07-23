@@ -9,6 +9,7 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
+import styles from './mainpage.scss'
 function MainPage() {
   const [city, setCity] = useState<string>('Москва');
 
@@ -17,7 +18,7 @@ function MainPage() {
   };
   return (
     <>
-      <Box sx={{ maxWidth: 400 }}>
+      <Box  sx={{ maxWidth: 400 }}>
         <FormControl fullWidth>
           <InputLabel id='city_label'>Город</InputLabel>
           <Select
