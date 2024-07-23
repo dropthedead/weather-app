@@ -1,37 +1,41 @@
-import { CollapsibleList, List, SimpleListItem } from "@rmwc/list"
-import { SimpleMenu } from "@rmwc/menu";
-import '@rmwc/menu/styles';
-import  { useState } from "react";
+import { useState } from 'react';
+
+import RenderFetchedWeather from './components/fetchweather';
+import {
+  Box,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from '@mui/material';
 function MainPage() {
-  const [city, setCity] = useState('Москва');
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [city, setCity] = useState<string>('Москва');
 
-  const handleCityChange = (newCity:string):void => {
-    setCity(newCity);
-    setMenuOpen(false);
+  const handleCityChange = (event: SelectChangeEvent) => {
+    setCity(event.target.value as string);
   };
-
   return (
     <>
-      <List>
-      <CollapsibleList
-          handle={
-            <SimpleListItem
-              text={city}
-              metaIcon="chevron_right"
-              onClick={() => setMenuOpen(!menuOpen)} 
-            />
-          }
-          open={menuOpen}
-          onClose={() => setMenuOpen(false)}
-        >
-          <SimpleListItem text="Москва" onClick={() => handleCityChange("Москва")} />
-          <SimpleListItem text="Санкт-Петербург" onClick={() => handleCityChange("Санкт-Петербург")} />
-          <SimpleListItem text="Ростов-На-Дону" onClick={() => handleCityChange("Ростов-На-Дону")} />
-          </CollapsibleList>
-      </List>
+      <Box sx={{ maxWidth: 400 }}>
+        <FormControl fullWidth>
+          <InputLabel id='city_label'>Город</InputLabel>
+          <Select
+            labelId='city_label'
+            id='city_select'
+            value={city}
+            label='City'
+            onChange={handleCityChange}
+          >
+            <MenuItem value={'Москва'}>Москва</MenuItem>
+            <MenuItem value={'Санкт-Петербург'}>Санкт-Петербург</MenuItem>
+            <MenuItem value={'Ростов-на-Дону'}>Ростов-на-Дону</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+      <RenderFetchedWeather city={city} />
     </>
   );
 }
 
-export default MainPage
+export default MainPage;
