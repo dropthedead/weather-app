@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import RenderFetchedWeather from './components/fetchweather';
 import {
 	Box,
@@ -10,12 +8,16 @@ import {
 	SelectChangeEvent,
 } from '@mui/material';
 import * as styles from './mainpage.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { changeCity } from '../../store/slices/settings';
 function MainPage() {
-	const [city, setCity] = useState<string>('Москва');
-
-	const handleCityChange = (event: SelectChangeEvent) => {
-		setCity(event.target.value as string);
-	};
+	const currentCity = useSelector((state: RootState) => state.settings.city);
+	const dispatch = useDispatch();
+	function handleCityChange(event: SelectChangeEvent<string>) {
+		const value = event.target.value;
+		dispatch(changeCity(value));
+	}
 	return (
 		<>
 			<Box className={styles.weather_section}>
@@ -25,7 +27,7 @@ function MainPage() {
 						<Select
 							labelId="city_label"
 							id="city_select"
-							value={city}
+							value={currentCity || 'Москва'}
 							label="City"
 							onChange={handleCityChange}
 						>
@@ -35,7 +37,7 @@ function MainPage() {
 						</Select>
 					</FormControl>
 				</Box>
-				<RenderFetchedWeather city={city} />
+				<RenderFetchedWeather city={currentCity} />
 			</Box>
 		</>
 	);
