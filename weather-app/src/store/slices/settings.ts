@@ -20,7 +20,7 @@ export const settingsSlice = createSlice({
 		changeTheme: (state) => {
 			state.theme = state.theme === 'dark' ? 'light' : 'dark';
 		},
-		showRepos: (state) => {
+		toggleShowRepos: (state) => {
 			state.showRepos = !state.showRepos;
 		},
 		changeDaysAmount: (state, action: PayloadAction<number>) => {
@@ -29,7 +29,7 @@ export const settingsSlice = createSlice({
 	},
 });
 
-export const { changeTheme, showRepos, changeDaysAmount } =
+export const { changeTheme, toggleShowRepos, changeDaysAmount } =
 	settingsSlice.actions;
 
 export default settingsSlice.reducer;

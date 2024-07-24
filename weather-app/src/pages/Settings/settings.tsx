@@ -1,22 +1,35 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/store';
-import { changeDaysAmount } from '../../store/slices/settings';
-import { Box, FormControl, NativeSelect, Typography } from '@mui/material';
+import { changeDaysAmount, toggleShowRepos } from '../../store/slices/settings';
+import {
+	Box,
+	FormControl,
+	NativeSelect,
+	Switch,
+	Typography,
+} from '@mui/material';
+import * as styles from './settings.module.scss';
 function Settings() {
 	const count = useSelector((state: RootState) => state.settings.days);
+	const projectsVisibility = useSelector(
+		(state: RootState) => state.settings.showRepos
+	);
 	const dispatch = useDispatch();
 
 	function handleChangeDays(e: React.ChangeEvent<HTMLSelectElement>) {
 		const value = e.target.value;
 		dispatch(changeDaysAmount(+value));
 	}
+	function handleToggleShowRepos() {
+		dispatch(toggleShowRepos());
+	}
 	return (
 		<>
-			<Typography sx={{ letterSpacing: 10 }} variant="h4">
+			<Typography className={styles.settings_header} variant="h4">
 				Настройки
 			</Typography>
 			<Box component="section">
-				<Box sx={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+				<Box className={styles.weather_days_choice}>
 					<Typography>
 						Выберите количество дней прогноза погоды по умолчанию
 					</Typography>
@@ -34,6 +47,13 @@ function Settings() {
 							<option value={3}>3</option>
 						</NativeSelect>
 					</FormControl>
+				</Box>
+				<Box className={styles.hide_projects}>
+					<Typography>Скрыть список проектов в "Обо мне"</Typography>
+					<Switch
+						checked={projectsVisibility}
+						onChange={handleToggleShowRepos}
+					/>
 				</Box>
 			</Box>
 		</>
