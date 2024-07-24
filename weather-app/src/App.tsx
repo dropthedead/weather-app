@@ -1,22 +1,42 @@
 import { Link, Outlet } from 'react-router-dom';
 
-import './App.scss';
+import * as styles from './App.scss';
+import { Box, Paper, Typography } from '@mui/material';
 function App() {
-  return (
-    <>
-      <header>
-        <h1>Weather App</h1>
+	return (
+		<>
+			<Paper elevation={12} sx={{ height: '100%' }}>
+				<header className={styles.header}>
+					<Typography sx={{ letterSpacing: 10 }} variant="h2">
+						Weather App
+					</Typography>
+					<Box
+						component="nav"
+						sx={{
+							display: 'flex',
+							justifyContent: 'space-between',
+							maxWidth: 500,
+							width: '100%',
+						}}
+					>
+						<Link className="nav_link" to="/">
+							Главная
+						</Link>
 
-        <Link to='/'>Главная</Link>
+						<Link className="nav_link" to="/about">
+							Обо мне
+						</Link>
 
-        <Link to='/about'>Обо мне</Link>
+						<Link className="nav_link" to="/settings">
+							Настройки
+						</Link>
+					</Box>
+				</header>
 
-        <Link to='/settings'>Настройки</Link>
-      </header>
-   
-      <Outlet />
-    </>
-  );
+				<Outlet />
+			</Paper>
+		</>
+	);
 }
 
 export default App;
