@@ -16,6 +16,7 @@ import {
 import ModeNightOutlinedIcon from '@mui/icons-material/ModeNightOutlined';
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import * as styles from './settings.module.scss';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 function Settings() {
 	const count = useSelector((state: RootState) => state.settings.days);
 	const projectsVisibility = useSelector(
@@ -37,13 +38,11 @@ function Settings() {
 	return (
 		<>
 			<Typography className={styles.settings_header} variant="h4">
-				Настройки
+				Настройки <SettingsOutlinedIcon />
 			</Typography>
-			<Box component="section">
-				<Box className={styles.weather_days_choice}>
-					<Typography>
-						Выберите количество дней прогноза погоды по умолчанию
-					</Typography>
+			<Box className={styles.settings_section_wrapper} component="section">
+				<Box className={styles.settings_section}>
+					<Typography>Выберите количество дней прогноза погоды</Typography>
 					<FormControl>
 						<NativeSelect
 							defaultValue={count}
@@ -59,7 +58,7 @@ function Settings() {
 						</NativeSelect>
 					</FormControl>
 				</Box>
-				<Box className={styles.hide_projects}>
+				<Box className={styles.settings_section}>
 					{projectsVisibility ? (
 						<Typography>Скрыть список проектов в "Обо мне"</Typography>
 					) : (
@@ -70,7 +69,7 @@ function Settings() {
 						onChange={handleToggleShowRepos}
 					/>
 				</Box>
-				<Box>
+				<Box className={styles.settings_section}>
 					<Typography>Тема приложения</Typography>
 					<Box>
 						<IconButton onClick={handleChangeTheme}>

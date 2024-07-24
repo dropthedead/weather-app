@@ -1,12 +1,16 @@
 .settings_header {
-	letter-spacing: 10;
+	letter-spacing: 6px;
+	text-align: center;
 }
-.weather_days_choice {
+.settings_section_wrapper {
+	gap: 20px;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+}
+.settings_section {
 	display: flex;
 	align-items: center;
 	gap: 5px;
-}
-.hide_projects {
-	display: flex;
-	align-items: center;
 }
