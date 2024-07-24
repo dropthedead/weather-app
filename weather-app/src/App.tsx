@@ -15,6 +15,7 @@ function App() {
 				<CssBaseline />
 				<Paper elevation={12} sx={{ height: '100%' }}>
 					<Header />
+					<div id="map"></div>
 					<Outlet />
 				</Paper>
 			</ThemeProvider>
