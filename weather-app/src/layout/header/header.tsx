@@ -62,27 +62,19 @@ function Header() {
 			<Box>
 				<Link to="/">
 					<AnimatePresence mode="wait">
-						{currentTheme === 'light' ? (
-							<motion.img
-								key="light"
-								src="./assets/cloudy.png"
-								alt="logo"
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1 }}
-								exit={{ opacity: 0 }}
-								transition={{ duration: 0.5 }}
-							/>
-						) : (
-							<motion.img
-								key="dark"
-								src="./assets/cloudy-night.png"
-								alt="logo"
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1 }}
-								exit={{ opacity: 0 }}
-								transition={{ duration: 0.5 }}
-							/>
-						)}
+						<motion.img
+							key={currentTheme}
+							src={
+								currentTheme === 'light'
+									? './assets/cloudy.png'
+									: './assets/cloudy-night.png'
+							}
+							alt="logo"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: 0 }}
+						/>
 					</AnimatePresence>
 				</Link>
 			</Box>
