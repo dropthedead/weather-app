@@ -21,19 +21,11 @@
 .skill_item {
 	text-align: center;
 	width: 100%;
-	&:hover {
-		filter: invert(1);
-	}
 }
 .grid {
 	text-align: center;
 }
-.grid_item {
-	transition: filter 0.3s ease-in-out;
-	&:hover {
-		filter: invert(1);
-	}
-}
+
 .contact_me {
 	display: flex;
 	align-items: center;

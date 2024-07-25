@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import * as styles from './header.module.scss';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
+import { AnimatePresence, motion } from 'framer-motion';
 
 function Header() {
 	const [drawerOpen, setDrawerOpen] = useState(false);
@@ -59,12 +60,30 @@ function Header() {
 	return (
 		<header className={styles.header}>
 			<Box>
-				<Link to="./">
-					{currentTheme === 'light' ? (
-						<img src="./assets/cloudy.png" alt="logo" />
-					) : (
-						<img src="./assets/cloudy-night.png" alt="logo" />
-					)}
+				<Link to="/">
+					<AnimatePresence mode="wait">
+						{currentTheme === 'light' ? (
+							<motion.img
+								key="light"
+								src="./assets/cloudy.png"
+								alt="logo"
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								exit={{ opacity: 0 }}
+								transition={{ duration: 0.5 }}
+							/>
+						) : (
+							<motion.img
+								key="dark"
+								src="./assets/cloudy-night.png"
+								alt="logo"
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								exit={{ opacity: 0 }}
+								transition={{ duration: 0.5 }}
+							/>
+						)}
+					</AnimatePresence>
 				</Link>
 			</Box>
 			<Box className={styles.desktopNav}>{navLinks}</Box>

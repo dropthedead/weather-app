@@ -64,7 +64,9 @@ function About() {
 							<Grid className={styles.grid} container spacing={1}>
 								{skills.map((skill, index) => (
 									<Grid key={index} xs={4}>
-										<Paper className={styles.grid_item}>{skill}</Paper>
+										<Paper elevation={4} className={styles.grid_item}>
+											{skill}
+										</Paper>
 									</Grid>
 								))}
 							</Grid>
@@ -76,7 +78,11 @@ function About() {
 							</Typography>
 							<Box className={styles.skills_container}>
 								{softSkills.map((softSkill, index) => (
-									<Paper key={index} className={styles.skill_item}>
+									<Paper
+										key={index}
+										elevation={6}
+										className={styles.skill_item}
+									>
 										{softSkill}
 									</Paper>
 								))}
