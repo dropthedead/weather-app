@@ -36,7 +36,7 @@ function FetchWeather(selectedCity: { city: string }) {
 
 	const { city } = selectedCity;
 
-	const url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY_WEATHER}&q=${city}&days=${count}`;
+	const url = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY_WEATHER}&q=${city}&days=${count}`;
 
 	const { isLoading, error, data } = useQuery<WeatherData, Error>({
 		queryKey: ['weatherData', city, count],
