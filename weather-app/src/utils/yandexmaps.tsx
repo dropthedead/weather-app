@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
-
 type City = 'Москва' | 'Санкт-Петербург' | 'Ростов-на-Дону';
 
 interface YandexMapProps {
@@ -26,8 +25,7 @@ const YandexMap: React.FC<YandexMapProps> = ({ city, apiKey }) => {
 			<Map
 				key={mapKey}
 				defaultState={{ center: coordinates[city], zoom: 7 }}
-				width="400px"
-				height="350px"
+				style={{ width: '100%', height: '350px' }}
 			>
 				<Placemark geometry={coordinates[city]} />
 			</Map>

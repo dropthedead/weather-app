@@ -23,3 +23,20 @@
 	font-size: 18px;
 	text-align: center;
 }
+@media (max-width: 768px) {
+	.weather_card {
+		max-width: none;
+	}
+	.forecast_wrapper {
+		width: 100%;
+		justify-content: center;
+	}
+	.weather_image {
+		background-size: auto;
+		-webkit-background-size: auto;
+		height: 70px;
+	}
+	.weather_info_text_big {
+		font-size: 14px;
+	}
+}

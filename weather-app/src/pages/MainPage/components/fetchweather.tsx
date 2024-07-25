@@ -76,7 +76,11 @@ function FetchWeather(selectedCity: { city: string }) {
 							<Typography gutterBottom variant="h5" component="div">
 								{secondsToDate(day.date_epoch)}
 							</Typography>
-							<Typography variant="body2" color="text.secondary">
+							<Typography
+								variant="body2"
+								color="text.secondary"
+								sx={{ textAlign: 'center' }}
+							>
 								Avg Temperature:
 							</Typography>
 							<Typography

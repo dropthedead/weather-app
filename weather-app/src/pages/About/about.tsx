@@ -1,24 +1,12 @@
 import TelegramIcon from '@mui/icons-material/Telegram';
-import {
-	Avatar,
-	Box,
-	ListItem,
-	ListItemAvatar,
-	ListItemText,
-	Paper,
-	Typography,
-} from '@mui/material';
+import { Box, Paper, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import TerminalIcon from '@mui/icons-material/Terminal';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
-import LanguageIcon from '@mui/icons-material/Language';
-import StoreIcon from '@mui/icons-material/Store';
-import PhotoSizeSelectActualIcon from '@mui/icons-material/PhotoSizeSelectActual';
-import ExtensionIcon from '@mui/icons-material/Extension';
-import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import * as styles from './about.module.scss';
+import ProjectList from './components/projectList';
 
 const skills = [
 	'JavaScript',
@@ -86,13 +74,13 @@ function About() {
 								<SentimentVerySatisfiedIcon />
 								{`Soft Skills:`}
 							</Typography>
-							<Grid className={styles.grid} container spacing={1}>
+							<Box className={styles.skills_container}>
 								{softSkills.map((softSkill, index) => (
-									<Grid key={index} xs={4}>
-										<Paper className={styles.grid_item}>{softSkill}</Paper>
-									</Grid>
+									<Paper key={index} className={styles.skill_item}>
+										{softSkill}
+									</Paper>
 								))}
-							</Grid>
+							</Box>
 						</Box>
 						<Box className={styles.contact_me}>
 							{`Contact me:`}
@@ -109,113 +97,7 @@ function About() {
 					</Typography>
 				</Box>
 			</Box>
-			{projectsVisibility && (
-				<Box className={styles.projects_wrapper} component="section">
-					<Typography>Некоторые из выполненных проектов:</Typography>
-					<a
-						href="https://valenki-online-store.netlify.app/"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<ListItem className={styles.list_item}>
-							<ListItemAvatar className={styles.list_item_avatar}>
-								<Avatar>
-									<StoreIcon />
-								</Avatar>
-							</ListItemAvatar>
-							<ListItemText
-								primary="Valenki-Store"
-								secondary="Онлайн-магазин (API ключ устарел)"
-							/>
-						</ListItem>
-					</a>
-					<a
-						href="https://rolling-scopes-school.github.io/dropthedead-JSFE2023Q4/coffee-house/"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<ListItem className={styles.list_item}>
-							<ListItemAvatar className={styles.list_item_avatar}>
-								<Avatar>
-									<LanguageIcon />
-								</Avatar>
-							</ListItemAvatar>
-							<ListItemText
-								primary="Coffee-house"
-								secondary="Онлайн-магазин/Landing"
-							/>
-						</ListItem>
-					</a>
-					<a
-						href="https://rolling-scopes-school.github.io/dropthedead-JSFEPRESCHOOL2023Q2/audioplayer/"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<ListItem className={styles.list_item}>
-							<ListItemAvatar className={styles.list_item_avatar}>
-								<Avatar>
-									<AudiotrackIcon />
-								</Avatar>
-							</ListItemAvatar>
-							<ListItemText
-								primary="Audio Player"
-								secondary="Простой онлайн плеер"
-							/>
-						</ListItem>
-					</a>
-					<a
-						href="https://rolling-scopes-school.github.io/dropthedead-JSFEPRESCHOOL2023Q2/imagegallery/"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<ListItem className={styles.list_item}>
-							<ListItemAvatar className={styles.list_item_avatar}>
-								<Avatar>
-									<PhotoSizeSelectActualIcon />
-								</Avatar>
-							</ListItemAvatar>
-							<ListItemText
-								primary="Image Gallery"
-								secondary="Поиск фото/картинок"
-							/>
-						</ListItem>
-					</a>
-					<a
-						href="https://rolling-scopes-school.github.io/dropthedead-JSFEPRESCHOOL2023Q2/library/"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<ListItem className={styles.list_item}>
-							<ListItemAvatar className={styles.list_item_avatar}>
-								<Avatar>
-									<LanguageIcon />
-								</Avatar>
-							</ListItemAvatar>
-							<ListItemText
-								primary="Brooklyn Public Library"
-								secondary="Landing библиотеки"
-							/>
-						</ListItem>
-					</a>
-					<a
-						href="https://rolling-scopes-school.github.io/dropthedead-JSFE2023Q4/hangman/ "
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<ListItem className={styles.list_item}>
-							<ListItemAvatar className={styles.list_item_avatar}>
-								<Avatar>
-									<ExtensionIcon />
-								</Avatar>
-							</ListItemAvatar>
-							<ListItemText
-								primary="Hangman"
-								secondary="Простая игра `Висельник`"
-							/>
-						</ListItem>
-					</a>
-				</Box>
-			)}
+			{projectsVisibility && <ProjectList />}
 		</>
 	);
 }
