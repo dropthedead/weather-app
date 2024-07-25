@@ -15,6 +15,7 @@
 .weather_card {
 	width: 100%;
 	max-width: 500px;
+	min-height: 350px;
 }
 .weather_image {
 	height: 140px;
@@ -26,6 +27,7 @@
 @media (max-width: 768px) {
 	.weather_card {
 		max-width: none;
+		min-height: auto;
 	}
 	.forecast_wrapper {
 		width: 100%;
