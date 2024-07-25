@@ -41,8 +41,10 @@ function MainPage() {
 						</Select>
 					</FormControl>
 				</Box>
-				<RenderFetchedWeather city={currentCity} />
-				<YandexMap city={currentCity} apiKey={API_KEY_MAPS} />
+				<Box className={styles.forecast_map_wrapper}>
+					<RenderFetchedWeather city={currentCity} />
+					<YandexMap city={currentCity} apiKey={API_KEY_MAPS} />
+				</Box>
 			</Box>
 		</>
 	);

@@ -25,9 +25,9 @@ const YandexMap: React.FC<YandexMapProps> = ({ city, apiKey }) => {
 		<YMaps query={{ apikey: apiKey }}>
 			<Map
 				key={mapKey}
-				defaultState={{ center: coordinates[city], zoom: 10 }}
-				width="100%"
-				height="400px"
+				defaultState={{ center: coordinates[city], zoom: 7 }}
+				width="400px"
+				height="350px"
 			>
 				<Placemark geometry={coordinates[city]} />
 			</Map>

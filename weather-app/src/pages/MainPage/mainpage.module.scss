@@ -5,7 +5,8 @@
 	margin: 0 auto;
 	margin-top: 4rem;
 	gap: 20px;
-	max-width: 500px;
+	// max-width: 500px;
+	align-items: center;
 }
 .weather_city_input {
 	max-width: 500px;
@@ -15,4 +16,12 @@
 	height: 100%;
 	margin: 0;
 	padding: 0;
+}
+.forecast_map_wrapper {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	width: 100%;
+	padding: 20px;
+	align-items: center;
 }

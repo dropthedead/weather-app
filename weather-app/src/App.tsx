@@ -6,7 +6,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import { lightTheme, darkTheme } from './theme';
 import { RootState } from './store/store';
-import Header from './pages/header';
+import Header from './layout/header/header';
 function App() {
 	const theme = useSelector((state: RootState) => state.settings.theme);
 	return (
@@ -16,6 +16,7 @@ function App() {
 				<Paper elevation={12} sx={{ height: '100%' }}>
 					<Header />
 					<div id="map"></div>
+					<em></em>
 					<Outlet />
 				</Paper>
 			</ThemeProvider>

@@ -13,10 +13,33 @@ import TerminalIcon from '@mui/icons-material/Terminal';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
+
+const skills = [
+	'JavaScript',
+	'HTML5',
+	'CSS3',
+	'Vite',
+	'WebPack',
+	'SASS/SCSS',
+	'GIT',
+	'TypeScript',
+	'React',
+	'Axios',
+	'TanStackQuery',
+	'Postman',
+];
+
+const softSkills = [
+	'Коммуникативность',
+	'Критическое мышление',
+	'Стрессоустойчивость',
+];
+
 function About() {
 	const projectsVisibility = useSelector(
 		(state: RootState) => state.settings.showRepos
 	);
+
 	return (
 		<>
 			<Box component="section">
@@ -28,7 +51,7 @@ function About() {
 						<a
 							href="https://rs.school/"
 							target="_blank"
-							rel="noopener norefferer"
+							rel="noopener noreferrer"
 						>
 							RsSchool
 						</a>
@@ -37,7 +60,7 @@ function About() {
 						<a
 							href="https://valenki-online-store.netlify.app/"
 							target="_blank"
-							rel="noopener norefferer"
+							rel="noopener noreferrer"
 						>
 							онлайн-магазина
 						</a>
@@ -50,61 +73,26 @@ function About() {
 						<TerminalIcon />
 						{`На данный момент владею:`}
 						<Grid container spacing={1}>
-							<Grid xs={4}>
-								<Paper>JavaScript</Paper>
-							</Grid>
-							<Grid xs={4}>
-								<Paper>HTML5</Paper>
-							</Grid>
-							<Grid xs={4}>
-								<Paper>CSS3</Paper>
-							</Grid>
-							<Grid xs={4}>
-								<Paper>Vite</Paper>
-							</Grid>
-							<Grid xs={4}>
-								<Paper>WebPack</Paper>
-							</Grid>
-							<Grid xs={4}>
-								<Paper>SASS/SCSS</Paper>
-							</Grid>
-							<Grid xs={4}>
-								<Paper>GIT</Paper>
-							</Grid>
-							<Grid xs={4}>
-								<Paper>TypeScript</Paper>
-							</Grid>
-							<Grid xs={4}>
-								<Paper>React</Paper>
-							</Grid>
-							<Grid xs={4}>
-								<Paper>Axios</Paper>
-							</Grid>
-							<Grid xs={4}>
-								<Paper>TanStackQuery</Paper>
-							</Grid>
-							<Grid xs={4}>
-								<Paper>Postman</Paper>
-							</Grid>
+							{skills.map((skill, index) => (
+								<Grid key={index} xs={4}>
+									<Paper>{skill}</Paper>
+								</Grid>
+							))}
 						</Grid>
 						<SentimentVerySatisfiedIcon />
 						{`Soft-skills:`}
 						<Grid container spacing={1}>
-							<Grid xs={4}>
-								<Paper>Коммуникативность</Paper>
-							</Grid>
-							<Grid xs={4}>
-								<Paper>Критическое мышление</Paper>
-							</Grid>
-							<Grid xs={4}>
-								<Paper>Стрессоустойчивость</Paper>
-							</Grid>
+							{softSkills.map((softSkill, index) => (
+								<Grid key={index} xs={4}>
+									<Paper>{softSkill}</Paper>
+								</Grid>
+							))}
 						</Grid>
 						{`Contact me:`}
 						<a
 							href="https://t.me/drpdd"
 							target="_blank"
-							rel="noopener norefferer"
+							rel="noopener noreferrer"
 						>
 							<TelegramIcon />
 							@drpdd

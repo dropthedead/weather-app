@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import { store, persistor } from './store/store.ts';
 import { StyledEngineProvider } from '@mui/material';
 import { PersistGate } from 'redux-persist/integration/react';
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <App />,
