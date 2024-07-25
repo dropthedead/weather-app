@@ -1,0 +1,59 @@
+.about_title {
+	text-align: center;
+}
+.cv_wrapper {
+	padding: 20px;
+	text-align: justify;
+}
+.skills_wrapper {
+	margin: 30px 0 15px;
+}
+.skills_title {
+	display: flex;
+	align-items: center;
+}
+.grid {
+	text-align: center;
+}
+.grid_item {
+	transition: filter 0.3s ease-in-out;
+	&:hover {
+		filter: invert(1);
+	}
+}
+.contact_me {
+	display: flex;
+	align-items: center;
+	font-size: 18px;
+}
+.telegram_link {
+	display: flex;
+	align-items: center;
+}
+.projects_wrapper {
+	padding: 20px;
+}
+.links {
+	&.tg {
+		display: flex;
+		align-items: center;
+	}
+	&::after {
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 2px;
+		bottom: 0;
+		left: 0;
+		background-color: currentColor;
+		transition: all 0.3s ease-in-out;
+	}
+	&:hover::after {
+		width: 100%;
+	}
+}
+
+.list_item:hover .list_item_avatar {
+	transform: scale(1.1);
+	transition: transform 0.5s ease-in-out;
+}

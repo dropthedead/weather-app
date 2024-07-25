@@ -1,3 +1,4 @@
+@import '../../layout/animations.scss';
 .weather_section {
 	display: flex;
 	flex-direction: column;
@@ -5,11 +6,10 @@
 	margin: 0 auto;
 	margin-top: 4rem;
 	gap: 20px;
-	// max-width: 500px;
 	align-items: center;
 }
 .weather_city_input {
-	max-width: 500px;
+	width: 200px;
 }
 .map {
 	width: 100%;

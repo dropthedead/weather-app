@@ -6,6 +6,7 @@ import './main.scss';
 import About from './pages/About/about.tsx';
 import Settings from './pages/Settings/settings.tsx';
 import MainPage from './pages/MainPage/mainpage.tsx';
+import NotFound from './pages/NotFound/notfoundpage.tsx';
 import { Provider } from 'react-redux';
 import { store, persistor } from './store/store.ts';
 import { StyledEngineProvider } from '@mui/material';
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
 			{
 				path: '/settings',
 				element: <Settings />,
+			},
+			{
+				path: '*',
+				element: <NotFound />,
 			},
 		],
 	},

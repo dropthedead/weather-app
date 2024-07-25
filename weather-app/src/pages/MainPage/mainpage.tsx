@@ -2,12 +2,11 @@ import RenderFetchedWeather from './components/fetchweather';
 import {
 	Box,
 	FormControl,
-	InputLabel,
 	MenuItem,
 	Select,
 	SelectChangeEvent,
 } from '@mui/material';
-import * as styles from './mainpage.module.scss';
+import styles from './mainpage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { changeCity } from '../../store/slices/settings';
@@ -27,13 +26,14 @@ function MainPage() {
 			<Box className={styles.weather_section}>
 				<Box className={styles.weather_city_input}>
 					<FormControl fullWidth>
-						<InputLabel id="city_label">Город</InputLabel>
 						<Select
-							labelId="city_label"
 							id="city_select"
 							value={currentCity || 'Москва'}
-							label="City"
 							onChange={handleCityChange}
+							displayEmpty
+							renderValue={(value) =>
+								value !== undefined && value !== null ? value : 'Выберите город'
+							}
 						>
 							<MenuItem value={'Москва'}>Москва</MenuItem>
 							<MenuItem value={'Санкт-Петербург'}>Санкт-Петербург</MenuItem>

@@ -1,5 +1,6 @@
 * {
 	font-family: 'Roboto', sans-serif;
+	user-select: none;
 }
 html,
 body {
@@ -8,6 +9,23 @@ body {
 	margin: 0;
 	padding: 0;
 }
+body::-webkit-scrollbar {
+	display: none;
+}
 #root {
 	padding: 20px;
+}
+a {
+	all: unset;
+	cursor: pointer;
+	font-weight: 600;
+	position: relative;
+	transition:
+		color 0.3s ease-in-out,
+		text-shadow 0.3s ease-in-out;
+	&:hover {
+		text-decoration: none;
+		color: inherit;
+		text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+	}
 }
